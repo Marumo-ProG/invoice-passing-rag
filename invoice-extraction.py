@@ -22,13 +22,13 @@ def main():
 
     submit = st.button("Extract Information")
 
-    if submit and pdf:
-        for uploaded_file in pdf:
-            with st.spinner("Extracting information..."):
-                df = iu.create_docs(pdf)
-                st.write(df)
-            
-            st.write("I hope I was able to save you time")
+    if submit:
+        
+        with st.spinner("Extracting information..."):
+            df = iu.create_docs(pdf)
+            st.write(df)
+        
+        st.write("I hope I was able to save you time")
 
 # invoking the main function to run the program
 

@@ -17,7 +17,16 @@ def create_docs(user_pdf_list):
 
     for filename in user_pdf_list:
         print(f"Processing file: {filename.name}")
-        loader = PyPDFLoader(filename)
+
+        # create a temp file for the uploaded PDF and write the contents to it
+        with open(filename.name, "wb") as f:
+            f.write(filename.getbuffer())
+        
+
+
+        # loader = PyPDFLoader(filename.name)
+        loader = PyPDFLoader(filename.name)
+
         pages = loader.load_and_split()
 
         # Create embeddings and vector store
